@@ -3,7 +3,7 @@ package com.jk.model.whn;
 import java.io.Serializable;
 //这是一个询图单
 public class PollingFigureSingle implements Serializable {
-    private Integer pollingFigureSingleID;//询图单ID
+    private String pollingFigureSingleID;//询图单ID
 
     private String startDate;//开始日期
 
@@ -39,11 +39,11 @@ public class PollingFigureSingle implements Serializable {
                 '}';
     }
 
-    public Integer getPollingFigureSingleID() {
+    public String getPollingFigureSingleID() {
         return pollingFigureSingleID;
     }
 
-    public void setPollingFigureSingleID(Integer pollingFigureSingleID) {
+    public void setPollingFigureSingleID(String pollingFigureSingleID) {
         this.pollingFigureSingleID = pollingFigureSingleID;
     }
 
