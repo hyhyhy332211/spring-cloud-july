@@ -4,7 +4,9 @@ import java.io.Serializable;
 //这是填写定制产品信息表
 public class CustomProduct implements Serializable {
 
-        private String productID;//定制产品ID
+ private static final long serialVersionUID = -877317810370928570L;
+
+      private String productID;//定制产品ID
 
         private String productName;//产品名称
 
@@ -34,25 +36,10 @@ public class CustomProduct implements Serializable {
 
         private String demandType;//需求类型
 
- @Override
- public String toString() {
-  return "CustomProduct{" +
-          "productID=" + productID +
-          ", productName='" + productName + '\'' +
-          ", procurementNum='" + procurementNum + '\'' +
-          ", productType='" + productType + '\'' +
-          ", inletPressureMin=" + inletPressureMin +
-          ", inletPressureMax=" + inletPressureMax +
-          ", outletPressureMin=" + outletPressureMin +
-          ", outletPressureMax=" + outletPressureMax +
-          ", trafficLength='" + trafficLength + '\'' +
-          ", voltageRegulator='" + voltageRegulator + '\'' +
-          ", carton='" + carton + '\'' +
-          ", cartonMaterial='" + cartonMaterial + '\'' +
-          ", note='" + note + '\'' +
-          ", attachment='" + attachment + '\'' +
-          ", demandType='" + demandType + '\'' +
-          '}';
+        private String status;  //状态字段
+
+ public static long getSerialVersionUID() {
+  return serialVersionUID;
  }
 
  public String getProductID() {
@@ -173,5 +160,35 @@ public class CustomProduct implements Serializable {
 
  public void setDemandType(String demandType) {
   this.demandType = demandType;
+ }
+
+ public String getStatus() {
+  return status;
+ }
+
+ public void setStatus(String status) {
+  this.status = status;
+ }
+
+ @Override
+ public String toString() {
+  return "CustomProduct{" +
+          "productID='" + productID + '\'' +
+          ", productName='" + productName + '\'' +
+          ", procurementNum='" + procurementNum + '\'' +
+          ", productType='" + productType + '\'' +
+          ", inletPressureMin=" + inletPressureMin +
+          ", inletPressureMax=" + inletPressureMax +
+          ", outletPressureMin=" + outletPressureMin +
+          ", outletPressureMax=" + outletPressureMax +
+          ", trafficLength='" + trafficLength + '\'' +
+          ", voltageRegulator='" + voltageRegulator + '\'' +
+          ", carton='" + carton + '\'' +
+          ", cartonMaterial='" + cartonMaterial + '\'' +
+          ", note='" + note + '\'' +
+          ", attachment='" + attachment + '\'' +
+          ", demandType='" + demandType + '\'' +
+          ", status='" + status + '\'' +
+          '}';
  }
 }
