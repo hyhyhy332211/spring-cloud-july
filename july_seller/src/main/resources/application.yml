@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: service-client
+    name: seller-client
   # mysql 属性配置
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
