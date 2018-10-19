@@ -1,12 +1,14 @@
 package com.jk.model.whn;
 
+import com.jk.util.PageUtil;
+
 import java.io.Serializable;
 //这是填写定制产品信息表
-public class CustomProduct implements Serializable {
+public class CustomProduct extends PageUtil implements Serializable {
 
  private static final long serialVersionUID = -877317810370928570L;
 
-      private String productID;//定制产品ID
+        private String productID;//定制产品ID
 
         private String productName;//产品名称
 
@@ -37,6 +39,36 @@ public class CustomProduct implements Serializable {
         private String demandType;//需求类型
 
         private String status;  //状态字段
+
+        private String pollingStartDate; //询图开始时间业务字段
+
+        private String pollingEndDate; //询图结束时间业务字段
+
+        private String custName;  //渠道名称业务字段
+
+ public String getPollingStartDate() {
+  return pollingStartDate;
+ }
+
+ public void setPollingStartDate(String pollingStartDate) {
+  this.pollingStartDate = pollingStartDate;
+ }
+
+ public String getPollingEndDate() {
+  return pollingEndDate;
+ }
+
+ public void setPollingEndDate(String pollingEndDate) {
+  this.pollingEndDate = pollingEndDate;
+ }
+
+ public String getCustName() {
+  return custName;
+ }
+
+ public void setCustName(String custName) {
+  this.custName = custName;
+ }
 
  public static long getSerialVersionUID() {
   return serialVersionUID;
