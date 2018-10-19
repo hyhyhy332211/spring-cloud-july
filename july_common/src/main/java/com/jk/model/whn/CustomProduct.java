@@ -14,13 +14,13 @@ public class CustomProduct implements Serializable {
 
         private String productType;//产品类型
 
-        private Double inletPressureMin;//进口压力最小值
+        private String inletPressureMin;//进口压力最小值
 
-        private Double inletPressureMax;//进口压力最大值
+        private String inletPressureMax;//进口压力最大值
 
-        private Double outletPressureMin;//出口压力最小值
+        private String outletPressureMin;//出口压力最小值
 
-        private Double outletPressureMax;//出口压力最大值
+        private String outletPressureMax;//出口压力最大值
 
         private String trafficLength;//流量计长度
 
@@ -74,35 +74,35 @@ public class CustomProduct implements Serializable {
   this.productType = productType;
  }
 
- public Double getInletPressureMin() {
+ public String getInletPressureMin() {
   return inletPressureMin;
  }
 
- public void setInletPressureMin(Double inletPressureMin) {
+ public void setInletPressureMin(String inletPressureMin) {
   this.inletPressureMin = inletPressureMin;
  }
 
- public Double getInletPressureMax() {
+ public String getInletPressureMax() {
   return inletPressureMax;
  }
 
- public void setInletPressureMax(Double inletPressureMax) {
+ public void setInletPressureMax(String inletPressureMax) {
   this.inletPressureMax = inletPressureMax;
  }
 
- public Double getOutletPressureMin() {
+ public String getOutletPressureMin() {
   return outletPressureMin;
  }
 
- public void setOutletPressureMin(Double outletPressureMin) {
+ public void setOutletPressureMin(String outletPressureMin) {
   this.outletPressureMin = outletPressureMin;
  }
 
- public Double getOutletPressureMax() {
+ public String getOutletPressureMax() {
   return outletPressureMax;
  }
 
- public void setOutletPressureMax(Double outletPressureMax) {
+ public void setOutletPressureMax(String outletPressureMax) {
   this.outletPressureMax = outletPressureMax;
  }
 
