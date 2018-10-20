@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.jk.seller.mapper.sellerCustom.SellerCustomMapper">
+    <!--查询定制比价管理(服务商)列表-->
+    <select id="getComparisonList" parameterType="com.jk.model.whn.CustomProduct" resultType="com.jk.model.whn.CustomProduct">
+     SELECT t1.productId,t1.productName,t1.status,t3.channel AS custName,t4.startDate AS pollingStartDate,
+            t4.abortDate AS pollingEndDate FROM t_customproduct t1
+            LEFT JOIN t_custom t3 ON t1.`cu_id`=t3.`customID`
+            LEFT JOIN t_pollingfiguresingle t4 ON t1.po_id = t4.`pollingFigureSingleID`
+        where 1=1
+        <if test="null != productName and '' != productName">
+            and t1.productName like concat('%',#{productName},'%')
+        </if>
+        <if test="null != pollingStartDate and '' != pollingStartDate">
+            and t4.startDate = str_to_date(#{pollingStartDate}, '%Y-%m-%d')
+        </if>
+        <if test="null != pollingEndDate and '' != pollingEndDate">
+            and t4.abortDate = str_to_date(#{pollingEndDate}, '%Y-%m-%d')
+        </if>
+        <if test="null != custName and '' != custName">
+            and t3.channel = #{custName}
+        </if>
+        <if test="-1 != status">
+            and t1.status = #{status}
+        </if>
+        <if test="-1 != status">
+            and t1.status = #{status}
+        </if>
+    </select>
+
+    <!--查询材料单-->
+    <select id="getMaterialList" resultType="com.jk.model.zll.Material">
+       SELECT t.`materialID`,t.`materialName`,t.`materialDate`,tt.channel as channel FROM t_material t
+             LEFT JOIN t_custom tt ON t.`custId` = tt.`customID`
+        where 1=1
+        <if test="null != materialName and '' != materialName">
+            and t.materialName like concat('%',#{materialName},'%')
+        </if>
+        <if test="null != channel and '' != channel">
+            and tt.channel = #{channel}
+        </if>
+    </select>
+
+    <!--待接单状态修改为待出图-->
+    <update id="updateNoSingleStatus">
+         update t_customproduct set status = 2 where productID = #{productID}
+    </update>
+
+    <insert id="saveFile">
+        insert into t_file (id,filePath)
+           values
+            (#{fileId},#{filePath})
+    </insert>
+</mapper>
